@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SearchBarNotes</title>
+    <script src="popup.js"></script>
+    <script src="background.js"></script>
+<style>
+  BODY {
+    min-width:550px;
+    min-height:550px;
+ }
+ HTML {
+    min-width:550px;
+    min-height:550px;
+ }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+  }
+  ul li:nth-child(odd) {
+    background: #f9f9f9;
+  }
+  ul li:hover {
+    background: #ddd;
+  }
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }
+</style>
+  </head>
+  <body>
+    <div id="myDIV" class="header">
+    </div>
+    <ul id="myUL">
+      <li>Add items to list</li>
+    </ul>
+
+  </body>
+</html>
