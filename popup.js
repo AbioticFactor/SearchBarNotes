@@ -19,6 +19,7 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
+//////////////////////////////////////////////
 function newElement() {
   var li = document.createElement("li");
   var inputValue = note;
@@ -29,6 +30,7 @@ function newElement() {
   } else {
     document.getElementById("myUL").appendChild(li);
   }
+////////////////////////////////////////////////
 
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
