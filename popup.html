@@ -2,16 +2,33 @@
 <html>
   <head>
     <title>SearchBarNotes</title>
-    <script src="popup.js"></script>
-    <script src="background.js"></script>
+
 <style>
+  :root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --hover-color: #ddd;
+  }
+
+  [data-theme="dark"] {
+    --primary-color: #000000;
+    --secondary-color: #818cab;
+    --font-color: #ffffff;
+    --bg-color: #000000;
+    --hover-color: #424242;
+  }
+  
   BODY {
     min-width:550px;
     min-height:550px;
+    background-color: var(--bg-color);
  }
  HTML {
     min-width:550px;
     min-height:550px;
+    color: var(--font-color);
  }
   ul {
     margin: 0;
@@ -26,10 +43,10 @@
     transition: 0.2s;
   }
   ul li:nth-child(odd) {
-    background: #f9f9f9;
+    background: var(--bg-color);
   }
   ul li:hover {
-    background: #ddd;
+    background: var(--hover-color);
   }
   .close {
     position: absolute;
@@ -41,14 +58,94 @@
     background-color: #f44336;
     color: white;
   }
+  
+  .switch-wrapper {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    right: 0px;
+    padding: 10px 10px 10px 20px;
+
+    em {
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    display:none;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #424242;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
 </style>
   </head>
   <body>
-    <div id="myDIV" class="header">
-    </div>
-    <ul id="myUL">
-      <li>Add items to list</li>
-    </ul>
+    
+    <ul id="Tobi">
 
+    </ul>
+    <script src="background.js" defer></script>
+    <script src="popup.js" defer></script>
+
+    <div class="switch-wrapper">
+      <em>Enable dark mode! &nbsp</em>
+      <label class="switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
   </body>
+    
+
 </html>
